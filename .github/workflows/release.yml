@@ -1,0 +1,23 @@
+name: Publish APK release
+on:
+  push:
+    branches: [main]
+    paths: ['dist/**', '.github/workflows/release.yml', 'release.py']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: apk-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Publish verified APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python release.py
