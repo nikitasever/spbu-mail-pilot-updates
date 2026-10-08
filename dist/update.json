@@ -1,7 +1,7 @@
 {
   "packageId": "ru.local.spbumailpilot",
-  "versionCode": 9,
-  "versionName": "0.9",
-  "url": "https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.9/spbu-mail-pilot-0.9.apk",
-  "sha256": "53deb26200c792255623af99ed3b198af86498a03b121dc6a83432e2f0078ecb"
+  "versionCode": 10,
+  "versionName": "0.9.1",
+  "url": "https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.9.1/spbu-mail-pilot-0.9.1.apk",
+  "sha256": "a08bb39cabbc9b6e292335e717c2341e4dee78b0a15aa2c44c286fcb043ac4ee"
 }
