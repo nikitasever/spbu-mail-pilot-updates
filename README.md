@@ -1,10 +1,12 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.26 (versionCode 30).**
+**Актуальная версия — 0.27 (versionCode 31).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.26/spbu-mail-pilot-0.26.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.26) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.27/spbu-mail-pilot-0.27.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.27) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
+
+Новая иконка с надписью «СПбГУ» в бордово-светлой палитре. В настройках каждого ящика можно отключить нейроанализ вместе с приветствием, умной панелью и ИИ-действиями; запросы анализа блокируются.
 
 ## Что доступно
 
