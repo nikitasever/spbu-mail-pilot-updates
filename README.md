@@ -1,8 +1,8 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.20 (versionCode 24).**
+**Актуальная версия — 0.21 (versionCode 25).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.20/spbu-mail-pilot-0.20.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.20) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.21/spbu-mail-pilot-0.21.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.21) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
 
@@ -15,6 +15,7 @@
 - Свои задачи: создание, сроки и приоритеты, редактирование, выполнение и поиск. Задачи, заметки и шаблоны сохраняются на телефоне отдельно для каждого аккаунта.
 - Светлая, тёмная и системная темы; единое оформление почты, календаря, форм и окон Android, включая выбор аккаунта и вход.
 - Шаблоны писем и подготовка текста для проверки или ответа во внешнем приложении ИИ. Передача только по кнопке, результат вставляется вручную; встроенного ИИ-сервиса без отдельного подключения нет.
+- Автоматическое обновление видимой папки через IMAP IDLE при поддержке сервером; без IDLE — проверка примерно раз в 30 секунд.
 - Уведомления о письмах и сроках; Android может задерживать фоновую проверку почты. Набор номера через системное приложение «Телефон».
 
 Письмо не превращается в поручение автоматически. Подробнее об изменениях и проверках — в [описании актуального релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/latest).
