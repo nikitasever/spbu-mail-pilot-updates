@@ -1,10 +1,12 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.37 (versionCode 41).**
+**Актуальная версия — 0.38 (versionCode 42).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.37/spbu-mail-pilot-0.37.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.37) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.38/spbu-mail-pilot-0.38.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.38) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
+
+Фоновая проверка текущего ящика раз в минуту работает отдельной службой с постоянным уведомлением, независимо от открытого экрана. Настройки → Уведомления: переключатель фоновой проверки и кнопка разрешения работы без ограничений батареи. Отключение режима возвращает обычный планировщик Android (примерно 15 минут, возможны задержки). Принудительная остановка в Android прекращает работу до следующего запуска.
 
 Поиск календаря: события и незавершённые задачи в выбранном месяце, название, описание, место и заметки. Нажатие на результат открывает нужный день; запрос сохраняется при переключении месяцев.
 
