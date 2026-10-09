@@ -1,10 +1,12 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.36 (versionCode 40).**
+**Актуальная версия — 0.37 (versionCode 41).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.36/spbu-mail-pilot-0.36.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.36) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.37/spbu-mail-pilot-0.37.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.37) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
+
+Поиск календаря: события и незавершённые задачи в выбранном месяце, название, описание, место и заметки. Нажатие на результат открывает нужный день; запрос сохраняется при переключении месяцев.
 
 Выпадающие списки открываются по обычному завершённому нажатию. Нажатие на уведомление новых писем открывает самое новое письмо из этой проверки, сохраняя текущий черновик и выбирая соответствующий сохранённый ящик.
 
