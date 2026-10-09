@@ -1,10 +1,12 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.34 (versionCode 38).**
+**Актуальная версия — 0.35 (versionCode 39).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.34/spbu-mail-pilot-0.34.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.34) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.35/spbu-mail-pilot-0.35.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.35) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
+
+Исправлено чтение имён, адресов и подразделения из ответов адресной книги, как в веб-почте. «Компания» учитывает настройки домена; отсутствие подразделения в «Команде» объясняется отдельно. Промежуточная страница больше не объявляется пустым справочником.
 
 Исправлен поиск людей в поле «Кому»: API веб-почты СПбГУ, поиск по всем доступным справочникам с учётом настроек ящика, без скрытия совпадений по служебному логину. Подсказки показывают имя, адрес и аватарку. Пустые результаты не сохраняются в кеше. Наличие конкретного человека в реальном ящике требует проверки владельцем.
 
