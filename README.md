@@ -1,10 +1,12 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.35 (versionCode 39).**
+**Актуальная версия — 0.36 (versionCode 40).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.35/spbu-mail-pilot-0.35.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.35) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.36/spbu-mail-pilot-0.36.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.36) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
+
+Выпадающие списки открываются по обычному завершённому нажатию. Нажатие на уведомление новых писем открывает самое новое письмо из этой проверки, сохраняя текущий черновик и выбирая соответствующий сохранённый ящик.
 
 Исправлено чтение имён, адресов и подразделения из ответов адресной книги, как в веб-почте. «Компания» учитывает настройки домена; отсутствие подразделения в «Команде» объясняется отдельно. Промежуточная страница больше не объявляется пустым справочником.
 
