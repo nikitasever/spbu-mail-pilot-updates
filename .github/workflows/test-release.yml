@@ -1,0 +1,20 @@
+name: Test release recovery
+on:
+  pull_request:
+    paths: ['release.py', 'tests/**', '.github/workflows/test-release.yml']
+  push:
+    branches: [main]
+    paths: ['release.py', 'tests/**', '.github/workflows/test-release.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Test publication without GitHub or Android access
+        run: python3 -m unittest discover -s tests -v
