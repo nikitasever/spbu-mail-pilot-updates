@@ -1,8 +1,8 @@
 # Почта · тест: обновления
 
-**Актуальная версия — 0.58 (versionCode 73).**
+**Актуальная версия — 0.59 (versionCode 74).**
 
-[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.58/spbu-mail-pilot-0.58.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.58) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
+[Скачать APK](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/download/v0.59/spbu-mail-pilot-0.59.apk) · [Описание текущего релиза](https://github.com/nikitasever/spbu-mail-pilot-updates/releases/tag/v0.59) · [Все версии](https://github.com/nikitasever/spbu-mail-pilot-updates/releases)
 
 Неофициальный личный экспериментальный Android-клиент почты, календаря и задач.
 
