@@ -1,29 +1,39 @@
-name: Publish APK release
+name: Publish isolated Compose candidate
 on:
-  push:
-    branches: [main]
-    paths: ['dist/**', '.github/workflows/release.yml', 'release.py']
   workflow_dispatch:
 permissions:
   contents: write
-concurrency:
-  group: apk-release
-  cancel-in-progress: false
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - name: Set up Android tools
-        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
-        with:
-          log-accepted-android-sdk-licenses: false
-          packages: ''
-      - run: sdkmanager 'build-tools;35.0.0'
-      - name: Publish verified APK
+      - name: Verify immutable candidate files
+        working-directory: candidates/0.74-native.2
+        run: |
+          sha256sum -c SHA256SUMS.txt
+          python3 - <<'PYTHON'
+          import json, pathlib, hashlib
+          info=json.loads(pathlib.Path('build-info.json').read_text())
+          assert info['packageId']=='ru.local.spbumailpilot'
+          assert info['versionName']=='0.74-native.2' and info['versionCode']==91
+          assert info['certificateSha256']=='197ecdabd94c7217afa45df6f02300f1f0ff12474b3146fc4018a3adbb8ce7b6'
+          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.2.apk').read_bytes()).hexdigest()
+          PYTHON
+      - name: Publish separate prerelease without changing stable channel
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python release.py
+        run: >-
+          gh release create v0.74-native.2
+          candidates/0.74-native.2/spbu-mail-pilot-0.74-native.2.apk
+          candidates/0.74-native.2/SHA256SUMS.txt
+          candidates/0.74-native.2/build-info.json
+          candidates/0.74-native.2/previews.zip
+          candidates/0.74-native.2/spbu-mail-pilot-0.74-native.2-source.zip
+          --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
+          --title '0.74-native.2 — Compose: календарь и шторка дня'
+          --notes-file candidates/0.74-native.2/release-notes.md
+          --prerelease --latest=false
