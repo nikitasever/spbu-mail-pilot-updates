@@ -43,6 +43,6 @@ jobs:
           candidates/0.74-native.4/SHA256SUMS-original.txt
           candidates/0.74-native.4/build-info-original.json
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title '0.74-native.4 — Compose: исправление пароля прокси Gemini'
+          --title '0.74-native.4 — Compose: пароль прокси, календари и вложения'
           --notes-file candidates/0.74-native.4/release-notes.md
           --prerelease --latest=false
