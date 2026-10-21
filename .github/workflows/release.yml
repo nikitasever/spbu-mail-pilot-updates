@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify immutable candidate files
-        working-directory: candidates/0.74-native.3
+        working-directory: candidates/0.74-native.4
         run: |
           sha256sum -c SHA256SUMS.txt
           sha256sum -c SHA256SUMS-original.txt
@@ -20,29 +20,29 @@ jobs:
           import json, pathlib, hashlib
           info=json.loads(pathlib.Path('build-info.json').read_text())
           assert info['packageId']=='ru.local.spbumailpilot'
-          assert info['versionName']=='0.74-native.3' and info['versionCode']==92
+          assert info['versionName']=='0.74-native.4' and info['versionCode']==93
           assert info['certificateSha256']=='197ecdabd94c7217afa45df6f02300f1f0ff12474b3146fc4018a3adbb8ce7b6'
-          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.3.apk').read_bytes()).hexdigest()
+          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.4.apk').read_bytes()).hexdigest()
           original=json.loads(pathlib.Path('build-info-original.json').read_text())
-          assert original['versionName']=='0.74-native.3-original' and original['versionCode']==92
+          assert original['versionName']=='0.74-native.4-original' and original['versionCode']==93
           assert original['certificateSha256']==info['certificateSha256']
-          assert original['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.3-original.apk').read_bytes()).hexdigest()
+          assert original['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.4-original.apk').read_bytes()).hexdigest()
           PYTHON
       - name: Publish separate prerelease without changing stable channel
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create v0.74-native.3
-          candidates/0.74-native.3/spbu-mail-pilot-0.74-native.3.apk
-          candidates/0.74-native.3/SHA256SUMS.txt
-          candidates/0.74-native.3/build-info.json
-          candidates/0.74-native.3/previews.zip
-          candidates/0.74-native.3/spbu-mail-pilot-0.74-native.3-source.zip
-          candidates/0.74-native.3/spbu-mail-pilot-0.74-native.3-original.apk
-          candidates/0.74-native.3/spbu-mail-pilot-0.74-native.3-original-source.zip
-          candidates/0.74-native.3/SHA256SUMS-original.txt
-          candidates/0.74-native.3/build-info-original.json
+          gh release create v0.74-native.4
+          candidates/0.74-native.4/spbu-mail-pilot-0.74-native.4.apk
+          candidates/0.74-native.4/SHA256SUMS.txt
+          candidates/0.74-native.4/build-info.json
+          candidates/0.74-native.4/previews.zip
+          candidates/0.74-native.4/spbu-mail-pilot-0.74-native.4-source.zip
+          candidates/0.74-native.4/spbu-mail-pilot-0.74-native.4-original.apk
+          candidates/0.74-native.4/spbu-mail-pilot-0.74-native.4-original-source.zip
+          candidates/0.74-native.4/SHA256SUMS-original.txt
+          candidates/0.74-native.4/build-info-original.json
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title '0.74-native.3 — Compose: Gemini через приватный TLS-прокси'
-          --notes-file candidates/0.74-native.3/release-notes.md
+          --title '0.74-native.4 — Compose: исправление пароля прокси Gemini'
+          --notes-file candidates/0.74-native.4/release-notes.md
           --prerelease --latest=false
