@@ -1,0 +1,10 @@
+{
+  "packageId": "ru.local.spbumailpilot",
+  "versionName": "0.74-native.6-original",
+  "versionCode": 95,
+  "certificateSha256": "197ecdabd94c7217afa45df6f02300f1f0ff12474b3146fc4018a3adbb8ce7b6",
+  "sha256": "ac07813adb8035e9345ec7f3163f1f18ce2afc69ed4c94783ce3106a9cf712bd",
+  "sourceCommit": "3370a4a1ba0ba4dad1727af3440751d129e77ae4",
+  "buildRun": 39765585238,
+  "sizeBytes": 8880909
+}
