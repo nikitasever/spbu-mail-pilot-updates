@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify immutable candidate files
-        working-directory: candidates/0.74-native.5
+        working-directory: candidates/0.74-native.6
         run: |
           sha256sum -c SHA256SUMS.txt
           sha256sum -c SHA256SUMS-original.txt
@@ -20,29 +20,29 @@ jobs:
           import json, pathlib, hashlib
           info=json.loads(pathlib.Path('build-info.json').read_text())
           assert info['packageId']=='ru.local.spbumailpilot'
-          assert info['versionName']=='0.74-native.5' and info['versionCode']==94
+          assert info['versionName']=='0.74-native.6' and info['versionCode']==95
           assert info['certificateSha256']=='197ecdabd94c7217afa45df6f02300f1f0ff12474b3146fc4018a3adbb8ce7b6'
-          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.5.apk').read_bytes()).hexdigest()
+          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.6.apk').read_bytes()).hexdigest()
           original=json.loads(pathlib.Path('build-info-original.json').read_text())
-          assert original['versionName']=='0.74-native.5-original' and original['versionCode']==94
+          assert original['versionName']=='0.74-native.6-original' and original['versionCode']==95
           assert original['certificateSha256']==info['certificateSha256']
-          assert original['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.5-original.apk').read_bytes()).hexdigest()
+          assert original['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.6-original.apk').read_bytes()).hexdigest()
           PYTHON
       - name: Publish separate prerelease without changing stable channel
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create v0.74-native.5
-          candidates/0.74-native.5/spbu-mail-pilot-0.74-native.5.apk
-          candidates/0.74-native.5/SHA256SUMS.txt
-          candidates/0.74-native.5/build-info.json
-          candidates/0.74-native.5/previews.zip
-          candidates/0.74-native.5/spbu-mail-pilot-0.74-native.5-source.zip
-          candidates/0.74-native.5/spbu-mail-pilot-0.74-native.5-original.apk
-          candidates/0.74-native.5/spbu-mail-pilot-0.74-native.5-original-source.zip
-          candidates/0.74-native.5/SHA256SUMS-original.txt
-          candidates/0.74-native.5/build-info-original.json
+          gh release create v0.74-native.6
+          candidates/0.74-native.6/spbu-mail-pilot-0.74-native.6.apk
+          candidates/0.74-native.6/SHA256SUMS.txt
+          candidates/0.74-native.6/build-info.json
+          candidates/0.74-native.6/previews.zip
+          candidates/0.74-native.6/spbu-mail-pilot-0.74-native.6-source.zip
+          candidates/0.74-native.6/spbu-mail-pilot-0.74-native.6-original.apk
+          candidates/0.74-native.6/spbu-mail-pilot-0.74-native.6-original-source.zip
+          candidates/0.74-native.6/SHA256SUMS-original.txt
+          candidates/0.74-native.6/build-info-original.json
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title '0.74-native.5 — Compose: календарь и просмотр пересланных писем'
-          --notes-file candidates/0.74-native.5/release-notes.md
+          --title '0.74-native.6 — Compose: Gemini: новый IP и проверка подключения'
+          --notes-file candidates/0.74-native.6/release-notes.md
           --prerelease --latest=false
