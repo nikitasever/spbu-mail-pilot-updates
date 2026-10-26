@@ -1,0 +1,2 @@
+5aa77430c450b2396d2197de53f1a6c70a3cdca39901001bb060d4a93ab9cd23  spbu-mail-pilot-0.74-native.8-original.apk
+c4aa1bd53c7dd97f126c814bf9428d37dc11b3c0d0195a6c1573b1adb7066109  spbu-mail-pilot-0.74-native.8-original-source.zip
