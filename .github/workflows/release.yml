@@ -1,4 +1,4 @@
-name: Publish isolated Compose candidate
+name: Publish isolated desktop preview
 on:
   workflow_dispatch:
 permissions:
@@ -11,37 +11,33 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - name: Verify immutable candidate files
-        working-directory: candidates/0.74-native.10
+      - name: Verify immutable Windows candidate
+        working-directory: candidates/desktop-0.1.0-preview.1
         run: |
           sha256sum -c SHA256SUMS.txt
-          sha256sum -c SHA256SUMS-original.txt
           python3 - <<'PYTHON'
-          import json, pathlib, hashlib
-          info=json.loads(pathlib.Path('build-info.json').read_text())
-          assert info['packageId']=='ru.local.spbumailpilot'
-          assert info['versionName']=='0.74-native.10' and info['versionCode']==99
-          assert info['certificateSha256']=='197ecdabd94c7217afa45df6f02300f1f0ff12474b3146fc4018a3adbb8ce7b6'
-          assert info['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.10.apk').read_bytes()).hexdigest()
-          original=json.loads(pathlib.Path('build-info-original.json').read_text())
-          assert original['versionName']=='0.74-native.10-original' and original['versionCode']==99
-          assert original['certificateSha256']==info['certificateSha256']
-          assert original['sha256']==hashlib.sha256(pathlib.Path('spbu-mail-pilot-0.74-native.10-original.apk').read_bytes()).hexdigest()
+          import json,pathlib,hashlib
+          p=pathlib.Path('.')
+          info=json.loads((p/'build-info.json').read_text())
+          assert info['sourceCommit']=='8248251f607e3f1bf87ef5223abed97d0dafdc3b'
+          assert info['buildRun']==40755423562 and info['platform']=='windows-x64'
+          assert info['sha256']==hashlib.sha256((p/info['file']).read_bytes()).hexdigest()
+          proof=json.loads((p/'install-proof.json').read_text())
+          assert proof['installed'] and proof['windowOpened'] and proof['jvmStoppedOnExit']
           PYTHON
-      - name: Publish separate prerelease without changing stable channel
+      - name: Publish separate desktop preview
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create v0.74-native.10
-          candidates/0.74-native.10/spbu-mail-pilot-0.74-native.10.apk
-          candidates/0.74-native.10/SHA256SUMS.txt
-          candidates/0.74-native.10/build-info.json
-          candidates/0.74-native.10/spbu-mail-pilot-0.74-native.10-source.zip
-          candidates/0.74-native.10/spbu-mail-pilot-0.74-native.10-original.apk
-          candidates/0.74-native.10/spbu-mail-pilot-0.74-native.10-original-source.zip
-          candidates/0.74-native.10/SHA256SUMS-original.txt
-          candidates/0.74-native.10/build-info-original.json
+          gh release create desktop-v0.1.0-preview.1
+          candidates/desktop-0.1.0-preview.1/spbu-mail-desktop-0.1.0-preview.1-windows-x64-setup.exe
+          candidates/desktop-0.1.0-preview.1/spbu-mail-desktop-0.1.0-preview.1-source.zip
+          candidates/desktop-0.1.0-preview.1/Cargo.lock
+          candidates/desktop-0.1.0-preview.1/build-info.json
+          candidates/desktop-0.1.0-preview.1/install-proof.json
+          candidates/desktop-0.1.0-preview.1/windows-login.png
+          candidates/desktop-0.1.0-preview.1/SHA256SUMS.txt
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title '0.74-native.10 — Compose: полный список папок'
-          --notes-file candidates/0.74-native.10/release-notes.md
+          --title 'Windows 0.1.0 preview 1 — локальная почта: папки и чтение'
+          --notes-file candidates/desktop-0.1.0-preview.1/release-notes.md
           --prerelease --latest=false
