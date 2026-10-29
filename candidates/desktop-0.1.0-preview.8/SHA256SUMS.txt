@@ -1,0 +1,6 @@
+2eea6196a33723b7fccb4ecc993f1c731c9748770965d8717986bc80a2b31202  Cargo.lock
+29f8d3fe8dfff3aea3f11e41531c7b07e6ad5b3399d2a64c920917c9fd2412d0  build-info.json
+bd1469a6c33b3dd38018ddc6877605ff3b93a45488d6e0da7a9d5480e9e10369  install-proof.json
+2223b53f8b32b15ee3ddde2f02bc0156c0fbba9500256b304c83d9c228fef212  spbu-mail-desktop-0.1.0-preview.8-source.zip
+f79f97bb54aee58a547f6d2c299f3681cee8c688a17ccf3045c699de4a471e5c  spbu-mail-desktop-0.1.0-preview.8-windows-x64-setup.exe
+9645c35eabf313199fa479c637cf3045f793956f4459fef0f44677d55463a0d1  windows-login.png
