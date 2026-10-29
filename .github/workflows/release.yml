@@ -12,15 +12,15 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify immutable Windows candidate
-        working-directory: candidates/desktop-0.1.0-preview.8
+        working-directory: candidates/desktop-0.1.0-preview.9
         run: |
           sha256sum -c SHA256SUMS.txt
           python3 - <<'PYTHON'
           import json,pathlib,hashlib
           p=pathlib.Path('.')
           info=json.loads((p/'build-info.json').read_text())
-          assert info['sourceCommit']=='6722d1c908697013e2265964e1028e7ba97b0b8b'
-          assert info['buildRun']==40864748507 and info['platform']=='windows-x64'
+          assert info['sourceCommit']=='da560a7624475ad38c29f0f69e7047c4cc58e02c'
+          assert info['buildRun']==40934285528 and info['platform']=='windows-x64'
           assert info['sha256']==hashlib.sha256((p/info['file']).read_bytes()).hexdigest()
           proof=json.loads((p/'install-proof.json').read_text())
           assert proof['installed'] and proof['windowOpened'] and proof['jvmStoppedOnExit']
@@ -29,15 +29,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create desktop-v0.1.0-preview.8
-          candidates/desktop-0.1.0-preview.8/spbu-mail-desktop-0.1.0-preview.8-windows-x64-setup.exe
-          candidates/desktop-0.1.0-preview.8/spbu-mail-desktop-0.1.0-preview.8-source.zip
-          candidates/desktop-0.1.0-preview.8/Cargo.lock
-          candidates/desktop-0.1.0-preview.8/build-info.json
-          candidates/desktop-0.1.0-preview.8/install-proof.json
-          candidates/desktop-0.1.0-preview.8/windows-login.png
-          candidates/desktop-0.1.0-preview.8/SHA256SUMS.txt
+          gh release create desktop-v0.1.0-preview.9
+          candidates/desktop-0.1.0-preview.9/spbu-mail-desktop-0.1.0-preview.9-windows-x64-setup.exe
+          candidates/desktop-0.1.0-preview.9/spbu-mail-desktop-0.1.0-preview.9-source.zip
+          candidates/desktop-0.1.0-preview.9/Cargo.lock
+          candidates/desktop-0.1.0-preview.9/build-info.json
+          candidates/desktop-0.1.0-preview.9/install-proof.json
+          candidates/desktop-0.1.0-preview.9/windows-login.png
+          candidates/desktop-0.1.0-preview.9/SHA256SUMS.txt
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title 'Windows 0.1.0 preview 8 — импорт контактов CSV и vCard'
-          --notes-file candidates/desktop-0.1.0-preview.8/release-notes.md
+          --title 'Windows 0.1.0 preview 9 — экспорт контактов CSV и vCard'
+          --notes-file candidates/desktop-0.1.0-preview.9/release-notes.md
           --prerelease --latest=false
