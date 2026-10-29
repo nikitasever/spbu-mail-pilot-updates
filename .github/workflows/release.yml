@@ -12,15 +12,15 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify immutable Windows candidate
-        working-directory: candidates/desktop-0.1.0-preview.1
+        working-directory: candidates/desktop-0.1.0-preview.2
         run: |
           sha256sum -c SHA256SUMS.txt
           python3 - <<'PYTHON'
           import json,pathlib,hashlib
           p=pathlib.Path('.')
           info=json.loads((p/'build-info.json').read_text())
-          assert info['sourceCommit']=='9bbb7b9f6f0e29fee95e94c404b8792d470f9c0b'
-          assert info['buildRun']==40761473511 and info['platform']=='windows-x64'
+          assert info['sourceCommit']=='3d861d6a86237613f3cb4089cf489e927e5a1ac2'
+          assert info['buildRun']==40813492525 and info['platform']=='windows-x64'
           assert info['sha256']==hashlib.sha256((p/info['file']).read_bytes()).hexdigest()
           proof=json.loads((p/'install-proof.json').read_text())
           assert proof['installed'] and proof['windowOpened'] and proof['jvmStoppedOnExit']
@@ -29,15 +29,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create desktop-v0.1.0-preview.1
-          candidates/desktop-0.1.0-preview.1/spbu-mail-desktop-0.1.0-preview.1-windows-x64-setup.exe
-          candidates/desktop-0.1.0-preview.1/spbu-mail-desktop-0.1.0-preview.1-source.zip
-          candidates/desktop-0.1.0-preview.1/Cargo.lock
-          candidates/desktop-0.1.0-preview.1/build-info.json
-          candidates/desktop-0.1.0-preview.1/install-proof.json
-          candidates/desktop-0.1.0-preview.1/windows-login.png
-          candidates/desktop-0.1.0-preview.1/SHA256SUMS.txt
+          gh release create desktop-v0.1.0-preview.2
+          candidates/desktop-0.1.0-preview.2/spbu-mail-desktop-0.1.0-preview.2-windows-x64-setup.exe
+          candidates/desktop-0.1.0-preview.2/spbu-mail-desktop-0.1.0-preview.2-source.zip
+          candidates/desktop-0.1.0-preview.2/Cargo.lock
+          candidates/desktop-0.1.0-preview.2/build-info.json
+          candidates/desktop-0.1.0-preview.2/install-proof.json
+          candidates/desktop-0.1.0-preview.2/windows-login.png
+          candidates/desktop-0.1.0-preview.2/SHA256SUMS.txt
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title 'Windows 0.1.0 preview 1 — локальная почта: папки и чтение'
-          --notes-file candidates/desktop-0.1.0-preview.1/release-notes.md
+          --title 'Windows 0.1.0 preview 2 — вложения: сохранение, прогресс и открытие'
+          --notes-file candidates/desktop-0.1.0-preview.2/release-notes.md
           --prerelease --latest=false
