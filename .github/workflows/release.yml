@@ -12,15 +12,15 @@ jobs:
         with:
           persist-credentials: false
       - name: Verify immutable Windows candidate
-        working-directory: candidates/desktop-0.1.0-preview.4
+        working-directory: candidates/desktop-0.1.0-preview.5
         run: |
           sha256sum -c SHA256SUMS.txt
           python3 - <<'PYTHON'
           import json,pathlib,hashlib
           p=pathlib.Path('.')
           info=json.loads((p/'build-info.json').read_text())
-          assert info['sourceCommit']=='a1061bd574eafbd32e3d9b878d81c7e8858bca4e'
-          assert info['buildRun']==40824577932 and info['platform']=='windows-x64'
+          assert info['sourceCommit']=='5a9abc359f13db67ce0db2d31508c37c2e83e905'
+          assert info['buildRun']==40840000640 and info['platform']=='windows-x64'
           assert info['sha256']==hashlib.sha256((p/info['file']).read_bytes()).hexdigest()
           proof=json.loads((p/'install-proof.json').read_text())
           assert proof['installed'] and proof['windowOpened'] and proof['jvmStoppedOnExit']
@@ -29,15 +29,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create desktop-v0.1.0-preview.4
-          candidates/desktop-0.1.0-preview.4/spbu-mail-desktop-0.1.0-preview.4-windows-x64-setup.exe
-          candidates/desktop-0.1.0-preview.4/spbu-mail-desktop-0.1.0-preview.4-source.zip
-          candidates/desktop-0.1.0-preview.4/Cargo.lock
-          candidates/desktop-0.1.0-preview.4/build-info.json
-          candidates/desktop-0.1.0-preview.4/install-proof.json
-          candidates/desktop-0.1.0-preview.4/windows-login.png
-          candidates/desktop-0.1.0-preview.4/SHA256SUMS.txt
+          gh release create desktop-v0.1.0-preview.5
+          candidates/desktop-0.1.0-preview.5/spbu-mail-desktop-0.1.0-preview.5-windows-x64-setup.exe
+          candidates/desktop-0.1.0-preview.5/spbu-mail-desktop-0.1.0-preview.5-source.zip
+          candidates/desktop-0.1.0-preview.5/Cargo.lock
+          candidates/desktop-0.1.0-preview.5/build-info.json
+          candidates/desktop-0.1.0-preview.5/install-proof.json
+          candidates/desktop-0.1.0-preview.5/windows-login.png
+          candidates/desktop-0.1.0-preview.5/SHA256SUMS.txt
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA"
-          --title 'Windows 0.1.0 preview 4 — защищённый аккаунт и восстановление черновика'
-          --notes-file candidates/desktop-0.1.0-preview.4/release-notes.md
+          --title 'Windows 0.1.0 preview 5 — CalDAV-календарь и события дня'
+          --notes-file candidates/desktop-0.1.0-preview.5/release-notes.md
           --prerelease --latest=false
