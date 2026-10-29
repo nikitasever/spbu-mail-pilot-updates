@@ -19,8 +19,8 @@ jobs:
           import json,pathlib,hashlib
           p=pathlib.Path('.')
           info=json.loads((p/'build-info.json').read_text())
-          assert info['sourceCommit']=='13209c639e36d82d041ff700df74bf0039b5ee43'
-          assert info['buildRun']==40822975437 and info['platform']=='windows-x64'
+          assert info['sourceCommit']=='a1061bd574eafbd32e3d9b878d81c7e8858bca4e'
+          assert info['buildRun']==40824577932 and info['platform']=='windows-x64'
           assert info['sha256']==hashlib.sha256((p/info['file']).read_bytes()).hexdigest()
           proof=json.loads((p/'install-proof.json').read_text())
           assert proof['installed'] and proof['windowOpened'] and proof['jvmStoppedOnExit']
