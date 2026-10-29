@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "channel": "preview.6",
+  "platform": "windows-x64",
+  "file": "spbu-mail-desktop-0.1.0-preview.6-windows-x64-setup.exe",
+  "sha256": "412712bf11453c6506dcc59564844e662084952ba08bf86c04f9aa7697f1b552",
+  "sizeBytes": 22182818,
+  "sourceCommit": "bd7f49fadb5cf9f9c5ee23b3365e73a79888f387",
+  "buildRun": 40845073310,
+  "cargoLockSha256": "2eea6196a33723b7fccb4ecc993f1c731c9748770965d8717986bc80a2b31202"
+}
