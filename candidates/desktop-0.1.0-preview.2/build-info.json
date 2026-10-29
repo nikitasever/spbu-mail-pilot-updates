@@ -3,9 +3,9 @@
   "channel": "preview.2",
   "platform": "windows-x64",
   "file": "spbu-mail-desktop-0.1.0-preview.2-windows-x64-setup.exe",
-  "sha256": "8b5e51a87fd5e23bf14f9b618ebc31f3f2c4ab44bbc79a0fa9f904c6fce4848f",
-  "sizeBytes": 18879276,
-  "sourceCommit": "3d861d6a86237613f3cb4089cf489e927e5a1ac2",
-  "buildRun": 40813492525,
-  "cargoLockSha256": "c025f241a85980f285731955512255a384737e44b212dad34bca2bba1081a341"
+  "sha256": "49c4e1793240fa55560602a210e3786ef1b9ab2d111b707599834254d2cc6604",
+  "sizeBytes": 18878508,
+  "sourceCommit": "fcdb29162cf6121bf71c52174b7cc5a21d016a48",
+  "buildRun": 40814415213,
+  "cargoLockSha256": "17138a264bdbca593b35d0f180605255df07cc4b1326cee9e0fd569a0e636c48"
 }
